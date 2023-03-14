@@ -31,3 +31,6 @@
 **Schéma MCD**
 ![image info](img/Schéma_MCD.png)
 
+### MLD
+- Utilisateur (user_id, user_pseudo, user_mail,user_mdp)
+- Publication (pub_id,pub_date_publication)
