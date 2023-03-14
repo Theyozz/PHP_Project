@@ -22,5 +22,5 @@ Règles de gestion
 - Une publication peut être partager par zéro ou plusieurs utilisateurs 
 
 Schéma MCD
-![image info](/Dictionnaire_de_données)
+![image info](/Dictionnaire_de_données.png)
 
