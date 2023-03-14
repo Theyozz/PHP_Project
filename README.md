@@ -21,7 +21,7 @@
 - Une publication peut être liker par zéro ou plusieurs utilisateurs
 - Une publication peut être partager par zéro ou plusieurs utilisateurs 
 
-**Schéma MCD**
+**Dictionnaire de données**
 ![image info](img/Dictionnaire_de_données.png)
 
 **Dépendances fonctionnelles**
