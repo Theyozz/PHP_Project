@@ -8,7 +8,7 @@
 
 ## Base de données
 ### MCD
-Règles de gestion 
+**Règles de gestion** 
 - Un utilisateur doit avoir un pseudo, un email et un mot de passe 
 - Un utilisateur peut publier zéro ou plusieurs publications
 - Un utilisateur peut suivre zéro ou plusieurs utilisateurs
@@ -21,6 +21,13 @@ Règles de gestion
 - Une publication peut être liker par zéro ou plusieurs utilisateurs
 - Une publication peut être partager par zéro ou plusieurs utilisateurs 
 
-Schéma MCD
+**Schéma MCD**
 ![image info](img/Dictionnaire_de_données.png)
+
+**Dépendances fonctionnelles**
+- user_id ? user_pseudo, user_mail, user_mdp
+- pub_id ? pub_date_publication
+
+**Schéma MCD**
+![image info](img/Schéma_MCD.png)
 
