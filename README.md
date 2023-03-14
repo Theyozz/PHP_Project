@@ -22,12 +22,12 @@
 - Une publication peut être partager par zéro ou plusieurs utilisateurs 
 
 **Schéma MCD**
-![image info](img/Dictionnaire_de_données.png)
+![image info](img/Dictionnaire_de_données.png){ width=50% }
 
 **Dépendances fonctionnelles**
 - user_id ? user_pseudo, user_mail, user_mdp
 - pub_id ? pub_date_publication
 
 **Schéma MCD**
-![image info](img/Schéma_MCD.png)
+![image info](img/Schéma_MCD.png){ width=50% }
 
