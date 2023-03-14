@@ -29,5 +29,5 @@
 - pub_id ? pub_date_publication
 
 **Schéma MCD**
-![image info](img/Schéma_MCD.png){ width=50% }
+\includegraphics[width=6cm]{img/Schéma_MCD.png}
 
