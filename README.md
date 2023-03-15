@@ -19,13 +19,13 @@
 ![image info](img/Dictionnaire_de_données.png)
 
 **Dépendances fonctionnelles**
-- user_id ? user_pseudo, user_mail, user_mdp
-- pub_id ? pub_date_publication
+- <ins>user_id</ins> ? user_pseudo, user_mail, user_mdp
+- <ins>pub_id</ins> ? pub_date_publication
 
 **Schéma MCD**
 
 ![image info](img/Schéma_MCD.png)
 
 ### MLD
-- Utilisateur (user_id, user_pseudo, user_mail,user_mdp)
-- Publication (pub_id,pub_date_publication)
+- Utilisateur (<ins>user_id</ins>, user_pseudo, user_mail,user_mdp)
+- Publication (<ins>pub_id</ins>,pub_date_publication)
