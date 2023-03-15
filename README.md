@@ -22,6 +22,7 @@
 - Une publication peut être partager par zéro ou plusieurs utilisateurs 
 
 **Dictionnaire de données**
+
 ![image info](img/Dictionnaire_de_données.png)
 
 **Dépendances fonctionnelles**
@@ -29,6 +30,7 @@
 - pub_id ? pub_date_publication
 
 **Schéma MCD**
+
 ![image info](img/Schéma_MCD.png)
 
 ### MLD
