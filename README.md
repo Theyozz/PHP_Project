@@ -16,7 +16,7 @@
 
 **Dictionnaire de données**
 
-![image info](img/dictionnaire_de_données.png)
+![image info](img/dictionnaire.png)
 
 **Dépendances fonctionnelles**
 - <ins>user_id</ins> ? user_pseudo, user_mail, user_mdp
