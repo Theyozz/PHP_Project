@@ -16,7 +16,7 @@
 
 **Dictionnaire de données**
 
-![image info](img/Dictionnaire_de_données.png)
+![image info](img/dictionnaire_de_données.png)
 
 **Dépendances fonctionnelles**
 - <ins>user_id</ins> ? user_pseudo, user_mail, user_mdp
@@ -24,8 +24,11 @@
 
 **Schéma MCD**
 
-![image info](img/Schéma_MCD.png)
+![image info](img/schema_MCD.png)
 
 ### MLD
-- Utilisateur (<ins>user_id</ins>, user_pseudo, user_mail,user_mdp)
-- Publication (<ins>pub_id</ins>,pub_date_publication)
+- Utilisateur (<ins>u_id</ins>, u_pseudo, u_mail, u_mdp)
+- Publication (<ins>p_id</ins>, p_date_publication, #u_id)
+- Share (<ins>u_id</ins>, <ins>p_id</ins>, commentaire)
+- Like (<ins>u_id</ins>, <ins>p_id</ins>)
+- Follow (<ins>u_id</ins>, <ins>f_id</ins>)
