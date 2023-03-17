@@ -32,3 +32,8 @@
 - Share (<ins>u_id</ins>, <ins>p_id</ins>, commentaire)
 - Like (<ins>u_id</ins>, <ins>p_id</ins>)
 - Follow (<ins>u_id</ins>, <ins>f_id</ins>)
+
+
+### MPD
+
+![image info](img/schema_MPD.png)
