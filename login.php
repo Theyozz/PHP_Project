@@ -1,0 +1,19 @@
+<?php 
+require_once __DIR__.'/layout/header.php';
+?>
+
+<form action="login_wait.php" class="text-center col-12 d-flex flex-column justify-content-center align-items-center mt-5" method="post">
+    <div class="m-3 col-4">
+        <input type="text" class="form-control" name="u_pseudo" placeholder="Your pseudo">
+    </div>
+    <div class="m-3 col-4">
+        <input type="password" class="form-control" name="u_mdp" placeholder="Your password">
+    </div>
+    <div class="m-3 col-4">
+        <input type="submit" class="btn btn-primary" value="Valider">
+    </div>
+</form>
+
+<?php 
+require_once __DIR__.'/layout/footer.php';
+?>
