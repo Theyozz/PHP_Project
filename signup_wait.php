@@ -2,14 +2,14 @@
 require_once __DIR__.'/bdd/pdo.php';
 require_once __DIR__.'/layout/header.php';
 
-$pseudo = $_POST['u_pseudo'];
-$mail = $_POST['u_mail'];
-$pass = $_POST['u_mdp'];
+$pseudo = $_POST['pseudo'];
+$mail = $_POST['mail'];
+$pass = $_POST['mdp'];
 $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
 
 if (!empty($pseudo || $mail || $pass)) {
   $stmt = $pdo->prepare(
-  "INSERT INTO users (u_pseudo,u_mail ,u_mdp)
+  "INSERT INTO users (pseudo,mail ,mdp)
   VALUES (:pseudo, :mail, :pass)"
   );
   
