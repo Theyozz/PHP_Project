@@ -7,7 +7,7 @@ require_once __DIR__.'/signup.php';
 $pseudo = $_POST['u_pseudo'];
 $mail = $_POST['u_mail'];
 $pass = $_POST['u_mdp'];
-require_once __DIR__.'/hashed_password.php';
+$hashed_password = password_hash($pass, PASSWORD_DEFAULT);
 
 if (!empty($pseudo || $mail || $pass)) {
   $stmt = $pdo->prepare(
