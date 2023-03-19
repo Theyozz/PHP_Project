@@ -39,7 +39,7 @@ session_start();
                   </li>
             <?php } else {
             ?>    <li class="nav-item d-flex">
-                    <a class="nav-link active text-light" aria-current="page" href="../login.php">Login</a>
+                    <a class="nav-link active text-light" aria-current="page" href="../login.php">Log in</a>
                     <span class="text-light d-flex align-items-center">/</span>
                     <a class="nav-link active text-light" aria-current="page" href="../signup.php">Sign up</a>
                   </li>
