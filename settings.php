@@ -1,5 +1,5 @@
 <?php 
-$title = "Profil";
+$title = "Settings";
 require_once __DIR__.'/layout/header.php';
 ?>
 
