@@ -1,8 +1,6 @@
 <?php
 require_once __DIR__.'/bdd/pdo.php';
 require_once __DIR__.'/layout/header.php';
-require_once __DIR__.'/signup.php';
-
 
 $pseudo = $_POST['u_pseudo'];
 $mail = $_POST['u_mail'];
@@ -24,7 +22,8 @@ if (!empty($pseudo || $mail || $pass)) {
     header("location:index.php");
     exit();
 } else {
-  header('location:signup.php');
+    header('location:signup.php');
+    exit();
 }
 
 ?>
