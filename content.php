@@ -9,7 +9,7 @@
         }
         $reverse = array_reverse($tabs);
         foreach ($reverse as $post) {
-            echo '<div class="m-5" style="border-bottom: 1px solid black;">'. '<p class="ps-4">' .$post['pseudo'].'</p>'.'<p class="p-4">'.$post['content'].'</p>'.'<p class="text-end pe-4">'.$post['date_publication'].'</p>'.'</div>';
+            echo '<div class="m-5 text-dark mx-auto" style="border-bottom: 1px solid black;width:60%;border-left:1px solid black;border-right:1px solid black;">'. '<p class="ps-4 fw-semibold">' .$post['pseudo'].'</p>'.'<p class="p-4">'.$post['content'].'</p>'.'<p class="text-end pe-4">'.$post['date_publication'].'</p>'.'</div>';
         }
     } else {
         require_once __DIR__.'/login.php';

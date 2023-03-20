@@ -18,12 +18,20 @@ if (!empty($pseudo || $mail || $pass)) {
       'mail'=> $mail,
       'pass'=> $hashed_password
   ]);
+  
+  $stmt2 = $pdo->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
+
+  $results2 = $stmt2->execute([
+    'pseudo' => $pseudo,
+]);
+
+$user = $stmt2->fetch();
+  
     $_SESSION['connected']= true;
+    $_SESSION['connected']= $user['id'];
     header("location:index.php");
     exit();
 } else {
     header('location:signup.php');
     exit();
 }
-
-?>

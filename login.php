@@ -10,7 +10,7 @@ require_once __DIR__ . '/layout/header.php';
     <p>Connect with your friend and post your life</p>
   </div>
   <div class="bg-white p-4 col-3 rounded-4 shadow">
-    <form action="login_wait.php" class="text-center mt-5 " method="post">
+    <form action="login_wait.php" class="text-center" method="post">
       <div class="mt-3 ">
         <input type="text" class="form-control" name="pseudo" placeholder="Pseudo" required>
       </div>
@@ -18,12 +18,12 @@ require_once __DIR__ . '/layout/header.php';
         <input type="password" class="form-control" name="mdp" placeholder="Password" required>
       </div>
       <div class="mt-3">
-        <input type="submit" class="btn btn-primary w-50" value="Log in">
+        <input type="submit" class="btn btn-primary w-50 shadow-sm" value="Log in">
       </div>
     </form>
     <hr style="width: 320px; color:grey;">
     <div class="text-center mt-3">
-      <button type="button" class="btn btn-success w-50" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" class="btn btn-success w-50 shadow-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Create account
       </button>
     </div>
@@ -37,24 +37,20 @@ require_once __DIR__ . '/layout/header.php';
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="signup_wait.php" class="text-center col-12 d-flex flex-column justify-content-center align-items-center mt-5" method="post">
-          <div class="m-3 col-4">
+        <form action="signup_wait.php" class="text-center col-12 d-flex flex-column justify-content-center align-items-center" method="post">
+          <div class="m-3 w-75">
             <input type="text" class="form-control" name="pseudo" placeholder="Pseudo" required>
           </div>
-          <div class="m-3 col-4">
+          <div class="m-3 w-75">
             <input type="email" class="form-control" name="mail" placeholder="Email" required>
           </div>
-          <div class="m-3 col-4">
+          <div class="m-3 w-75">
             <input type="password" class="form-control" name="mdp" placeholder="Password" required>
           </div>
           <div class="m-3 col-4">
-            <input type="submit" class="btn btn-primary" value="Valider">
+            <input type="submit" class="btn btn-success" value="Create Account">
           </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Sign Up</button>
       </div>
     </div>
   </div>

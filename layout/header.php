@@ -13,11 +13,13 @@ session_start();
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../img/logo_PHP_P.webp">
 </head>
-<body class= <?php if (empty($_SESSION)) {
+<body style="min-height: 100vh;" class= <?php if (empty($_SESSION)) {
   echo '"d-flex justify-content-center align-items-center bg-light"'?>
-<?php } ?>>
+<?php } else{
+  echo "bg-light";
+ } ?>>
   <?php if (!empty($_SESSION)) {
-    ?><nav class="navbar navbar-expand-lg bg-dark navbar-fixed-top">
+    ?><nav class="navbar navbar-expand-lg bg-dark navbar-fixed-top fixed-top border-bottom">
     <div class="container-fluid">
       <a href="../index.php">
         <img src="../img/logo_PHP_P.webp" alt="" width="40px" height="40px">
