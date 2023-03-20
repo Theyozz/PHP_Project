@@ -2,10 +2,9 @@
     require_once __DIR__.'/bdd/pdo.php';
 
     $tabs = array();
-    $stmt = $pdo->query("SELECT * FROM publication ");
-    $stmt2 = $pdo->query("SELECT * FROM publication INNER JOIN users ON Publication.user_id = users.id " );
+    $stmt = $pdo->query("SELECT * FROM publication INNER JOIN users ON Publication.user_id = users.id " );
 
-    foreach ($stmt2 as $key => $value) {  
+    foreach ($stmt as $key => $value) {  
         $tabs[] = $value;
     }
     $reverse = array_reverse($tabs);
