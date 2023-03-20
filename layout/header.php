@@ -31,10 +31,10 @@ session_start();
           ?>  <li class="nav-item">
                 <a class="nav-link active text-light fw-light" aria-current="page" href="../profil.php">Profil</a>
               </li>
-        <?php } ?>
-        <li class="nav-item">
+              <li class="nav-item">
           <a class="nav-link active text-light fw-light" aria-current="page" href="../settings.php">Settings</a>
         </li>
+        <?php } ?>
       </ul>
       <div class="text-end">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">

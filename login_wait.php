@@ -11,7 +11,6 @@ $results = $stmt->execute([
 ]);
 
 $user = $stmt->fetch();
-$verify = password_verify($pass, $user['mdp']);
 
 if ($user && password_verify($pass, $user['mdp'])) {
     $_SESSION['connected']= true;
