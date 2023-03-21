@@ -16,7 +16,7 @@
 
 **Dictionnaire de données**
 
-![image info](img/dictionnaire.png)
+![image info](img/bdd/dictionnaire.png)
 
 **Dépendances fonctionnelles**
 - <ins>user_id</ins> ? user_pseudo, user_mail, user_mdp
@@ -24,7 +24,7 @@
 
 **Schéma MCD**
 
-![image info](img/schema_MCD.png)
+![image info](img/bdd/schema_MCD.png)
 
 ### MLD
 - Utilisateur (<ins>u_id</ins>, u_pseudo, u_mail, u_mdp)
@@ -36,4 +36,4 @@
 
 ### MPD
 
-![image info](img/schema_MPD.png)
+![image info](img/bdd/schema_MPD.png)
