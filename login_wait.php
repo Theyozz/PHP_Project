@@ -19,7 +19,7 @@ if ($user && password_verify($pass, $user['mdp'])) {
     header("location:index.php");
     exit();
 } else {
-    header("location:login.php");
+    header("location:erreur.html");
     exit();
 }
 
