@@ -45,16 +45,10 @@ $user = $stmt->fetch();
 
 <div>
     <?php 
-        $stmt2 = $pdo->query("SELECT * FROM publication INNER JOIN users ON Publication.user_id = users.id WHERE users.id = '$userId' AND publication.user_id = '$userId' ");
+        $statement = $pdo->query("SELECT * FROM Publication INNER JOIN users ON Publication.user_id = users.id WHERE users.id = '$userId' AND publication.user_id = '$userId' ORDER BY Publication.date_publication DESC ");
 
-        $userPost = $stmt->fetchAll();
-        $tabs = array();
-        foreach ($stmt2 as $key => $value) {  
-            $tabs[] = $value;
-        }
-        $reverse = array_reverse($tabs);
-        foreach ($reverse as $user) {
-            echo '<div class="w-50 mx-auto mt-4 p-3 border-bottom bg-light rounded-4"><div class="d-flex align-items-end"><img width="40px" height="40px" class="rounded-4" src="'.$user['img'].'"><p>'. $user['pseudo'] .'</div></p><p>'.$user['content'].'</p><p class="text-end mt-5">'.$user['date_publication'].'</p></div>';
+        foreach ($statement as $tweet) {
+            echo '<div class="m-5 rounded-4 pt-4 text-dark bg-light mx-auto" style="border-bottom: 2px solid black;width:60%;border-left:1px solid black;border-right:1px solid black;">'.'<div class="ms-3 d-flex align-items-end gap-2"><img src="'.$tweet['img'] .'" alt="" width="40px" height="40px" class="rounded-4"> '.'</img>'. '<div><p class=" fw-semibold m-0">' .$tweet['pseudo'].'</p><p class="m-0">'.$tweet['mail'].'</p></div></div>'.'<p class="p-4">'.$tweet['content'].'</p>'.'<p class="text-end pe-4">'.$tweet['date_publication'].'</p>'.'</div>';
         }
     ?>
 </div>
