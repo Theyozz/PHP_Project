@@ -22,9 +22,9 @@ if (!empty($pseudo)) {
 }
 
 if (!empty($mail)) {
-    $stmt2 = $pdo2->prepare(
+    $stmt2 = $pdo->prepare(
         "UPDATE users
-        SET mail = ':mail'
+        SET mail = :mail
         WHERE users.id = '$userId'"
         );
     

@@ -14,7 +14,6 @@ $user = $stmt->fetch();
 
 if ($user && password_verify($pass, $user['mdp'])) {
     
-    $_SESSION['connected']= true;
     $_SESSION['connected']=$user['id'];
     header("location:index.php");
     exit();

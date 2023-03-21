@@ -27,7 +27,6 @@ if (!empty($pseudo || $mail || $pass)) {
 
 $user = $stmt2->fetch();
   
-    $_SESSION['connected']= true;
     $_SESSION['connected']= $user['id'];
     header("location:index.php");
     exit();
