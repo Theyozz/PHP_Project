@@ -3,7 +3,6 @@ session_start();
 require_once __DIR__.'/bdd/pdo.php';
 
 $content = $_POST['content'];
-var_dump($_POST);
 
 if (!empty($content)) {
     $stmt = $pdo->prepare(
