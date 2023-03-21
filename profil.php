@@ -4,13 +4,11 @@ require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/bdd/pdo.php';
 
 $userId = $_SESSION['connected'];
-
-$stmt = $pdo->query("SELECT * FROM publication INNER JOIN users ON Publication.user_id = users.id WHERE users.id = '$userId' ");
-
+$stmt = $pdo->query("SELECT * FROM users WHERE users.id = $userId");
 $user = $stmt->fetch();
 ?>
 
-<div class="d-flex align-items-end gap-4 justify-content-around mt-5 pt-4">
+<div class="w-75 mx-auto d-flex align-items-end gap-4 justify-content-around mt-5 p-4 ">
     <div class="d-flex gap-4 align-items-end">
         <img src="<?php echo $user['img'] ?>" class="rounded-5" width="100px" height="100px">
         <h1><?php echo $user['pseudo'] ?></h1>
@@ -42,6 +40,21 @@ $user = $stmt->fetch();
     </div>
 </div>
 
+<div>
+    <?php 
+        $stmt2 = $pdo->query("SELECT * FROM publication INNER JOIN users ON Publication.user_id = users.id WHERE users.id = '$userId' AND publication.user_id = '$userId' ");
+
+        $userPost = $stmt->fetchAll();
+        $tabs = array();
+        foreach ($stmt2 as $key => $value) {  
+            $tabs[] = $value;
+        }
+        $reverse = array_reverse($tabs);
+        foreach ($reverse as $user) {
+            echo '<div class="w-50 mx-auto mt-4 border-bottom"><p>'.$user['content'].'</p><p class="text-end mt-5">'.$user['date_publication'].'</p></div>';
+        }
+    ?>
+</div>
 
 
 
