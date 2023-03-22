@@ -21,7 +21,7 @@ session_start();
   <link rel="icon" href="../img/logo_PHP_P.webp">
 </head>
 
-<body style="min-height: 100vh;" class=<?php if (empty($_SESSION)) {
+<body style="min-height: 100vh; padding-top:100px; padding-bottom:100px" class=<?php if (empty($_SESSION)) {
       echo '"d-flex justify-content-center align-items-center bg-light"'; 
       } else {
       echo "bg-dark";

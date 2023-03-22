@@ -12,9 +12,9 @@ if (!empty($_SESSION)) {
     $user = $stmt->fetch();
 ?>
 
-    <div class="w-75 mx-auto d-flex align-items-end gap-4 justify-content-around mt-5 mb-5 p-4 border-bottom">
+    <div class="w-75 mx-auto d-flex align-items-end gap-4 justify-content-around mb-5 p-4 border-bottom">
         <div class="d-flex gap-4 align-items-end text-light">
-            <img src="<?php echo $user['img'] ?>" class="rounded-5" width="100px" height="100px">
+            <img src="<?php echo $user['img'] ?>" class="rounded-circle" width="150px" height="150px">
             <div>
                 <h1><?php echo $user['pseudo'] ?></h1>
                 <p class="m-0 "><?php echo $user['mail'] ?></p>
@@ -31,7 +31,7 @@ if (!empty($_SESSION)) {
     $userTweets = $statement->execute();
 
     foreach ($statement as $tweet) {
-        echo '<div class="m-5 rounded-4 pt-4 text-dark bg-light mx-auto" style="border-bottom: 2px solid black;width:60%;border-left:1px solid black;border-right:1px solid black;">' . '<div class="ms-3 d-flex align-items-end gap-2"><img src="' . $tweet['img'] . '" alt="" width="40px" height="40px" class="rounded-4"> ' . '</img>' . '<div><p class=" fw-semibold m-0">' . $tweet['pseudo'] . '</p><p class="m-0">' . $tweet['mail'] . '</p></div></div>' . '<p class="p-4">' . $tweet['content'] . '</p>' . '<p class="text-end pe-4">' . $tweet['date_publication'] . '</p>' . '</div>';
+        echo '<div class="m-5 rounded-4 pt-4 text-dark bg-light mx-auto" style="border-bottom: 2px solid black;width:60%;border-left:1px solid black;border-right:1px solid black;">' . '<div class="ms-3 d-flex align-items-end gap-2"><img src="' . $tweet['img'] . '" alt="" width="45px" height="45px" class="rounded-circle"> ' . '</img>' . '<div><p class=" fw-semibold m-0">' . $tweet['pseudo'] . '</p><p class="m-0">' . $tweet['mail'] . '</p></div></div>' . '<p class="p-4">' . $tweet['content'] . '</p>' . '<div class="d-flex justify-content-between ms-3"><div class="d-flex gap-2"><img src="img/commenter.png" width="20px" height="20px"><img src="img/retweet.png" width="20px" height="20px"></div><p class="text-end pe-4">' . $tweet['date_publication'] . '</p></div>' . '</div>';
     }
 } else {
     header('location:login.php');

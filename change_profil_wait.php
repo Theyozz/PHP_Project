@@ -3,7 +3,6 @@ session_start();
 require_once __DIR__ . '/bdd/pdo.php';
 
 $img = $_FILES['img'];
-$img_name = 'img/'.$img['name'];
 $tmp_name = $img['tmp_name'];
 $pseudo = $_POST['pseudo'];
 $mail = $_POST['mail'];
@@ -19,8 +18,8 @@ if (!empty($img)) {
         WHERE users.id = '$userId'"
         );
 
-    $results3 = $statement->execute([
-        'img' => $img_name
+    $image = $statement->execute([
+        'img' => $img_upload_path
     ]);
    
     header('location:profil.php');
@@ -48,7 +47,7 @@ if (!empty($mail)) {
         WHERE users.id = '$userId'"
     );
 
-    $results2 = $stmt2->execute([
+    $mail = $stmt2->execute([
         'mail' => $mail
     ]);
     header('location:profil.php');
