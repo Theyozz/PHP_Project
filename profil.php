@@ -12,21 +12,20 @@ if (!empty($_SESSION)) {
     $user = $stmt->fetch();
 ?>
 
-    <div class="w-75 mx-auto d-flex align-items-end gap-4 justify-content-around mb-5 p-4 border-bottom">
+    <div class="w-100 mx-auto d-flex align-items-end gap-4 bg-black bg-opacity-25 justify-content-around mb-5 p-4 ">
         <div class="d-flex gap-4 align-items-end text-light">
             <img src="<?php echo $user['img'] ?>" class="rounded-circle" width="150px" height="150px">
             <div>
-                <h1><?php echo $user['pseudo'] ?></h1>
-                <p class="m-0 "><?php echo $user['mail'] ?></p>
+                <h1><?php echo $user['pseudo']?></h1>
+                <p class="m-0 fw-light"><?php echo $user['mail'] ?></p>
             </div>
         </div>
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#profilModal">Edit profil
+        <button type="button" class="btn btn-danger fw-light" data-bs-toggle="modal" data-bs-target="#profilModal">Edit profil
         </button>
     </div>
 
 
 <?php
-    // $statement = $pdo->query("SELECT * FROM Publication INNER JOIN users ON Publication.user_id = users.id WHERE users.id = '$userId' AND publication.user_id = '$userId' ORDER BY Publication.date_publication DESC ");
     $statement = $pdo->prepare("SELECT * FROM Publication INNER JOIN users ON Publication.user_id = users.id WHERE users.id = '$userId' AND publication.user_id = '$userId' ORDER BY Publication.date_publication DESC ");
     $userTweets = $statement->execute();
 

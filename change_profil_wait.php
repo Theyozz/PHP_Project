@@ -7,21 +7,23 @@ $tmp_name = $img['tmp_name'];
 $pseudo = $_POST['pseudo'];
 $mail = $_POST['mail'];
 $userId = $_SESSION['connected'];
+$img_upload_path = './img/' . $img['name'];
 
-if (!empty($img)) {
+if (!empty($img['name'])) {
 
-    $img_upload_path = 'img/' . $img['name'];
-    move_uploaded_file($tmp_name,$img_upload_path);
+    move_uploaded_file($tmp_name, $img_upload_path);
     $statement = $pdo->prepare(
         "UPDATE users
         SET img = :img
         WHERE users.id = '$userId'"
-        );
+    );
 
     $image = $statement->execute([
         'img' => $img_upload_path
     ]);
-   
+
+    header('location:profil.php');
+} else {
     header('location:profil.php');
 }
 
@@ -36,8 +38,6 @@ if (!empty($pseudo)) {
         'pseudo' => $pseudo
     ]);
     header('location:profil.php');
-} else {
-    header('location:profil.php');
 }
 
 if (!empty($mail)) {
@@ -50,7 +50,5 @@ if (!empty($mail)) {
     $mail = $stmt2->execute([
         'mail' => $mail
     ]);
-    header('location:profil.php');
-} else {
     header('location:profil.php');
 }
