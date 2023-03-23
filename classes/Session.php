@@ -1,5 +1,6 @@
-<?php 
-class Session{
+<?php
+class Session
+{
 
     public function __construct()
     {
@@ -13,11 +14,7 @@ class Session{
     public function flash()
     {
         if (isset($_SESSION['flash'])) {
-            ?><div class="alert alert-error">
-                <a class="close">X</a>
-                <?php echo $_SESSION['flash']; ?>
-            </div>
-            <?php
+            $_SESSION['flash'];
             unset($_SESSION['flash']);
         }
     }

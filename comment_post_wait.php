@@ -1,21 +1,25 @@
-<?php 
-session_start();
-require_once __DIR__.'/bdd/pdo.php';
+<?php
+require_once __DIR__ .'/bdd/pdo.php';
+require_once __DIR__ .'/layout/header.php';
 
-$comment = $GET['comment'];
-var_dump($_GET);
+$postId = $_POST['idPublication'];
+$comment = $_POST['comment'];
+$userId = $_SESSION['connected'];
 
 if (!empty($comment)) {
     $stmt = $pdo->prepare(
-        "UPDATE Publication
-        SET comment = :comment
-        WHERE Publication.id = "
-    );
-
+        "INSERT INTO comment (c_content,publication_id,user_id)
+        VALUES (:comment,:p_id,:u_id)");
+    
     $results = $stmt->execute([
-        'comment' => $comment
+        'comment' => $comment,
+        'p_id' => $postId,
+        'u_id' => $userId
     ]);
-    // header('location:profil.php');
+    header('location:post.php?id='.$postId);
 } else {
-    // header('location:profil.php');
+    header('location:post.php?id='.$postId);
 }
+
+
+
