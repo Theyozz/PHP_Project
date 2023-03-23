@@ -14,9 +14,6 @@
         <li class="nav-item">
           <a class="nav-link active text-light fw-light" aria-current="page" href="../profil.php">Profil</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active text-light fw-light" aria-current="page" href="../settings.php">Settings</a>
-        </li>
       </ul>
       <div class="text-end">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">

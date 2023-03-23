@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once __DIR__.'/../classes/Session.php';
+$Session = new Session();
 ?>
 
 <!DOCTYPE html>
