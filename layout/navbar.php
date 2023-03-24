@@ -17,8 +17,11 @@
       </ul>
       <div class="text-end">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active text-light" aria-current="page" href="../logout.php">Log out</a>
+          <li class="nav-item ">
+            <a class="nav-link active text-light d-flex gap-2 align-items-center" aria-current="page" href="../logout.php">
+            <p class="m-0">Log out</p>
+            <img src="../img/power-button.png" width="20px" height="20px" alt="">
+            </a>
           </li>
         </ul>
       </div>

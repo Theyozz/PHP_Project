@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ .'/bdd/pdo.php';
 require_once __DIR__ .'/layout/header.php';
+require_once __DIR__ . '/functions/redirect.php';
 
 $postId = $_POST['idPublication'];
 $comment = $_POST['comment'];
@@ -16,9 +17,9 @@ if (!empty($comment)) {
         'p_id' => $postId,
         'u_id' => $userId
     ]);
-    header('location:post.php?id='.$postId);
+    redirect('post.php?id='.$postId);
 } else {
-    header('location:post.php?id='.$postId);
+    redirect('post.php?id='.$postId);
 }
 
 

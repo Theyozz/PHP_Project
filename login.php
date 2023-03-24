@@ -3,7 +3,6 @@ $title = "Log in";
 require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/modal/signup_modal.php';
 require_once __DIR__ .'/classes/LoginError.php';
-require_once __DIR__ .'/classes/Session.php';
 ?>
 
 

@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require_once __DIR__.'/bdd/pdo.php';
+require_once __DIR__.'/functions/redirect.php';
 
 $content = $_POST['content'];
 
@@ -14,6 +15,6 @@ if (!empty($content)) {
             'content' => $content,
             'user_id' => $_SESSION['connected']
         ]);    
-        header('location:index.php');
+        redirect('index.php');
 }
 

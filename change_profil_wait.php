@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/bdd/pdo.php';
+require_once __DIR__ . '/functions/redirect.php';
 
 $img = $_FILES['img'];
 $tmp_name = $img['tmp_name'];
@@ -22,9 +23,7 @@ if (!empty($img['name'])) {
         'img' => $img_upload_path
     ]);
 
-    header('location:profil.php');
-} else {
-    header('location:profil.php');
+    redirect('profil.php');
 }
 
 if (!empty($pseudo)) {
@@ -37,7 +36,7 @@ if (!empty($pseudo)) {
     $results = $stmt->execute([
         'pseudo' => $pseudo
     ]);
-    header('location:profil.php');
+    redirect('profil.php');
 }
 
 if (!empty($mail)) {
@@ -50,5 +49,5 @@ if (!empty($mail)) {
     $mail = $stmt2->execute([
         'mail' => $mail
     ]);
-    header('location:profil.php');
+    redirect('profil.php');
 }

@@ -18,4 +18,12 @@ class Session
             unset($_SESSION['flash']);
         }
     }
+
+    public function notLogIn()
+    {
+        if (empty($_SESSION)) {
+                redirect('login.php');
+                exit();
+            }
+    }
 }
