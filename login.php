@@ -2,7 +2,8 @@
 $title = "Log in";
 require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/modal/signup_modal.php';
-require_once __DIR__ .'/classes/LoginError.php';
+require_once __DIR__ .'/classes/MsgError.php';
+require_once __DIR__ .'/functions/error.php';
 ?>
 
 
@@ -14,11 +15,7 @@ require_once __DIR__ .'/classes/LoginError.php';
   <div class="bg-white p-4 col-3 rounded-4 shadow">
     <form action="login_wait.php" class="text-center" method="post">
 
-      <?php if (array_key_exists('error', $_GET)) { ?>
-        <div class="alert alert-danger">
-          <?php echo LoginError::getErrorMessage(intval($_GET['error'])); ?>
-        </div>
-      <?php } ?>
+      <?php error() ?>
 
       <div class="mt-3 ">
         <input type="text" class="form-control" name="pseudo" placeholder="Pseudo" >

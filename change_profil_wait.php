@@ -2,6 +2,7 @@
 session_start();
 require_once __DIR__ . '/bdd/pdo.php';
 require_once __DIR__ . '/functions/redirect.php';
+require_once __DIR__ . '/classes/MsgError.php';
 
 $img = $_FILES['img'];
 $tmp_name = $img['tmp_name'];
@@ -22,32 +23,39 @@ if (!empty($img['name'])) {
     $image = $statement->execute([
         'img' => $img_upload_path
     ]);
-
     redirect('profil.php');
 }
 
-if (!empty($pseudo)) {
-    $stmt = $pdo->prepare(
-        "UPDATE users
-        SET pseudo = :pseudo
-        WHERE users.id = '$userId'"
-    );
+try {
+    if (!empty($pseudo)) {
+        $stmt = $pdo->prepare(
+            "UPDATE users
+            SET pseudo = :pseudo
+            WHERE users.id = '$userId'"
+        );
 
-    $results = $stmt->execute([
-        'pseudo' => $pseudo
-    ]);
-    redirect('profil.php');
+        $results = $stmt->execute([
+            'pseudo' => $pseudo
+        ]);
+        redirect('profil.php');
+    }
+} catch (Exception $e) {
+    redirect('profil.php?error=' . MsgError::DUPLICATE_PSEUDO);
 }
 
-if (!empty($mail)) {
-    $stmt2 = $pdo->prepare(
-        "UPDATE users
-        SET mail = :mail
-        WHERE users.id = '$userId'"
-    );
+try {
+    if (!empty($mail)) {
+        $stmt2 = $pdo->prepare(
+            "UPDATE users
+            SET mail = :mail
+            WHERE users.id = '$userId'"
+        );
 
-    $mail = $stmt2->execute([
-        'mail' => $mail
-    ]);
-    redirect('profil.php');
+        $mail = $stmt2->execute([
+            'mail' => $mail
+        ]);
+        redirect('profil.php');
+    }
+} catch (Exception $e) {
+    redirect('profil.php?error=' . MsgError::DUPLICATE_EMAIL);
 }

@@ -3,7 +3,9 @@ $title = "Profil";
 require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/bdd/pdo.php';
 require_once __DIR__ . '/modal/profil_modal.php';
+require_once __DIR__ . '/classes/MsgError.php';
 require_once __DIR__ . '/functions/redirect.php';
+require_once __DIR__ . '/functions/error.php';
 
 $session->notLogIn();
 
@@ -19,6 +21,7 @@ $session->notLogIn();
             <div>
                 <h1><?php echo $user['pseudo']?></h1>
                 <p class="m-0 fw-light"><?php echo $user['mail'] ?></p>
+                <?php error(); ?>
             </div>
         </div>
         <button type="button" class="btn btn-danger fw-light" data-bs-toggle="modal" data-bs-target="#profilModal">Edit profil

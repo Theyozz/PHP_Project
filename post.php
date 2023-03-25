@@ -39,17 +39,17 @@ $post = $stmt->fetch();
     $comments = $statement->fetchAll();
     foreach ($comments as $comment) {
     ?> 
-        <div class="d-flex justify-content-between mx-5 my-5 border-bottom ">
+        <div class="d-flex justify-content-between align-items-end mx-5 my-5 border-bottom ">
             <p><?php echo $comment['c_content'] ;?></p>
             <div class="d-flex gap-1 fw-light fs-6">
-                <p><?php echo " by ". $comment['pseudo'] ;?></p>
-                <p class="fs-small"><?php echo " at ". $comment['creation_date']."<br />" ?></p>
+                <p class="date mb-2"><?php echo " by ". $comment['pseudo'] ;?></p>
+                <p class="fs-6 date mb-2"><?php echo " at ". $comment['creation_date']."<br />" ?></p>
             </div>
         </div>
 
     <?php } ?>
     <form class="d-flex flex-column mt-4" method="post" action="comment_post_wait.php">
-        <textarea name="comment" class="form-control"></textarea>
+        <textarea name="comment" class="form-control" maxlength="200"></textarea>
         <input type="hidden" name="idPublication" value="<?php echo $postId ?>">
         <button class="btn btn-primary w-25 mx-auto mt-1">Respond</button>
     </form>

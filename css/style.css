@@ -1,3 +1,6 @@
 .lien:hover{
     text-decoration: underline !important;
 }
+.date{
+    font-size: 0.8rem !important;
+}

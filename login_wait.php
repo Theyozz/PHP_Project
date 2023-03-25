@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__.'/bdd/pdo.php';
 require_once __DIR__.'/layout/header.php'; 
-require_once __DIR__ .'/classes/LoginError.php';
+require_once __DIR__ .'/classes/MsgError.php';
 require_once __DIR__ .'/functions/redirect.php';
 
 $pseudo = $_POST['pseudo'];
@@ -20,7 +20,7 @@ if ($user && password_verify($pass, $user['mdp'])) {
     redirect('index.php');
     exit();
 } else {
-    redirect('login.php?error=' . LoginError::PASS_PSEUDO_INVALID);
+    redirect('login.php?error=' . MsgError::PASS_PSEUDO_INVALID);
     exit();
 }
 
