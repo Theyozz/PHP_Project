@@ -57,7 +57,7 @@ if ($userId == $_SESSION['connected']) {
                     <img src="img/commenter.png" width="20px" height="20px">
                     <img src="img/retweet.png" width="20px" height="20px">
                 </div>
-                <p class="text-end pe-4"><?php echo $tweet['date_publication'] ?></p>
+                <p class="text-end pe-4"><?php echo date("d/m/Y H:i",strtotime($tweet['date_publication'])) ?></p>
             </div>
         </div>
 <?php }

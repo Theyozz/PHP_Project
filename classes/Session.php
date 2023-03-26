@@ -26,4 +26,10 @@ class Session
                 exit();
             }
     }
+
+    public function logOut()
+    {
+        session_destroy();
+        redirect('login.php');
+    }
 }

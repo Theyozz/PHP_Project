@@ -16,13 +16,19 @@ $session->notLogIn();
 foreach ($stmt as $tweetInfo) {
 ?>
     <div class="m-5 rounded-4 pt-4 text-dark bg-light mx-auto shadow" style="border-bottom: 2px solid black;width:60%;border-left:1px solid black;border-right:1px solid black;">
-        <div class="ms-3 d-flex align-items-end gap-2">
-            <img src="<?php echo $tweetInfo['img'] ?>" alt="" width="45px" height="45px" class="rounded-circle">
-            </img>
-            <div>
-                <a href="user.php?id=<?php echo $tweetInfo['user_id'] ?>" class="lien fw-semibold m-0 text-black text-decoration-none"><?php echo  $tweetInfo['pseudo'] ?></a>
-                <p class="m-0"><?php echo $tweetInfo['mail'] ?></p>
+        <div class="ms-3 d-flex align-items-start justify-content-between gap-2">
+            <div class="d-flex gap-2">
+                <img src="<?php echo $tweetInfo['img'] ?>" alt="" width="45px" height="45px" class="rounded-circle">
+                </img>
+                <div>
+                    <a href="user.php?id=<?php echo $tweetInfo['user_id'] ?>" class="lien fw-semibold m-0 text-black text-decoration-none"><?php echo  $tweetInfo['pseudo'] ?></a>
+                    <p class="m-0"><?php echo $tweetInfo['mail'] ?></p>
+                </div>
             </div>
+            <?php 
+                if ($tweetInfo['user_id'] == $_SESSION['connected']) { ?>
+                    <a class="text-decoration-none text-black me-4" href="delete_tweet_wait.php?id=<?php echo $tweetInfo['id'] ?>">X</a> 
+            <?php } ?>
         </div>
         <p class="p-4"><?php echo $tweetInfo['content']  ?></p>
         <div class="d-flex justify-content-between ms-3">
@@ -60,7 +66,7 @@ foreach ($stmt as $tweetInfo) {
                         </span>
                 </div>
             </div>
-            <p class="text-end pe-4"><?php echo $tweetInfo['date_publication'] ?></p>
+            <p class="text-end pe-4"><?php echo date("d/m/Y H:i",strtotime($tweetInfo['date_publication'])); ?></p>
         </div>
     </div>
 <?php  }

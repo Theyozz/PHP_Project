@@ -30,7 +30,7 @@ $post = $stmt->fetch();
             </a>
             <img src="img/retweet.png" width="20px" height="20px">
         </div>
-        <p class="text-end pe-4"><?php echo $post['date_publication'] ?></p>
+        <p class="text-end pe-4"><?php echo date("d/m/Y H:i",strtotime($post['date_publication'])) ?></p>
     </div>
     
     <?php
@@ -43,7 +43,7 @@ $post = $stmt->fetch();
             <p><?php echo $comment['c_content'] ;?></p>
             <div class="d-flex gap-1 fw-light fs-6">
                 <p class="date mb-2"><?php echo " by ". $comment['pseudo'] ;?></p>
-                <p class="fs-6 date mb-2"><?php echo " at ". $comment['creation_date']."<br />" ?></p>
+                <p class="fs-6 date mb-2"><?php echo date("d/m/Y H:i",strtotime($comment['creation_date']))."<br />" ?></p>
             </div>
         </div>
 

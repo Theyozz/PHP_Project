@@ -12,10 +12,10 @@ class MsgError
                 return "Pseudo or Password invalid";
                 break;
             case self::DUPLICATE_PSEUDO:
-                return "Pseudo already exist";
+                return "Pseudo already used";
                 break;
             case self::DUPLICATE_EMAIL:
-                return "Email already exist";
+                return "Email already used";
                 break;
             default:
                 return "ERROR ERROR ERROR";

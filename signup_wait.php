@@ -32,6 +32,6 @@ if (!empty($pseudo || $mail || $pass)) {
     redirect('index.php');
     exit();
 } else {
-    redirect('signup.php');
+    redirect('login.php');
     exit();
 }
