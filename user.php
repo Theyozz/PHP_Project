@@ -25,9 +25,25 @@ if ($userId == $_SESSION['connected']) {
                 <p class="m-0 fw-light"><?php echo $user['mail'] ?></p>
             </div>
         </div>
-        <button type="button" class="btn btn-primary fw-light">
-            Follow
-        </button>
+        <?php
+        $ownId = $_SESSION['connected'];
+        $Following = $pdo->prepare("SELECT * FROM `follow` WHERE user_id = $ownId AND f_id = $userId");
+        $resultFollow = $Following->execute();
+        $Follows = $Following->fetch();
+
+        if ($Follows !== false) { ?>
+
+            <a class='text-decoration-none'href="follow.php?id=<?php echo $userId ?>">
+                <button type="button" class="btn btn-danger fw-light">
+                    Unfollow
+                </button>
+            <?php } else { ?>
+                <a href="follow.php?id=<?php echo $userId ?>">
+                    <button type="button" class="btn btn-primary fw-light">
+                        Follow
+                    </button>
+                </a>
+            <?php  } ?>
     </div>
 
 
@@ -37,13 +53,14 @@ if ($userId == $_SESSION['connected']) {
         "SELECT * FROM Publication INNER JOIN users 
         ON Publication.user_id = users.id 
         WHERE users.id = '$userId' AND publication.user_id = '$userId' 
-        ORDER BY Publication.date_publication DESC ");
+        ORDER BY Publication.date_publication DESC "
+    );
 
     $userTweets = $statement->execute();
 
 
     foreach ($statement as $tweet) { ?>
-        <div class="m-5 rounded-4 pt-4 text-dark bg-light mx-auto" style="border-bottom: 2px solid black;width:60%;border-left:1px solid black;border-right:1px solid black;">
+        <div class="m-5 rounded-4 pt-4 text-dark bg-light mx-auto " style="border-bottom: 2px solid black;width:60%;border-left:1px solid black;border-right:1px solid black;">
             <div class="ms-3 d-flex align-items-end gap-2">
                 <img src="<?php echo $tweet['img'] ?>" alt="" width="45px" height="45px" class="rounded-circle"></img>
                 <div>
@@ -54,11 +71,12 @@ if ($userId == $_SESSION['connected']) {
             <p class="p-4"><?php echo $tweet['content'] ?></p>
             <div class="d-flex justify-content-between ms-3">
                 <div class="d-flex gap-2">
-                        <img src="img/commenter.png" width="20px" height="20px">
-                        <img src="img/retweet.png" width="20px" height="20px">
+                    <img src="img/commenter.png" width="20px" height="20px">
+                    <img src="img/retweet.png" width="20px" height="20px">
+                    <img src="img/heart.png" width="20px" height="20px">
                 </div>
-                <p class="text-end pe-4"><?php echo date("d/m/Y H:i",strtotime($tweet['date_publication'])) ?></p>
+                <p class="text-end pe-4"><?php echo date("d/m/Y H:i", strtotime($tweet['date_publication'])) ?></p>
             </div>
         </div>
 <?php }
-} 
+}
