@@ -50,9 +50,22 @@ foreach ($stmt as $tweetInfo) {
                     </span>
                 </div>
                 <div>
-                    <a class="text-decoration-none p-0" href="retweet.php?id=<?php echo $tweetInfo['id'] ?>">
-                        <img src="img/retweet.png" width="20px" height="20px">
-                    </a>
+                <?php 
+                        $userId = $_SESSION['connected'];
+                        $selectRetweet = $pdo->prepare("SELECT * FROM `Share` WHERE user_id = $userId AND publication_id = $tweetId");
+                        $resultretweet = $selectRetweet->execute();
+                        $retweets = $selectRetweet->fetch();
+
+                        if ($retweets !== false) {
+                        ?>  
+                            <a class="text-decoration-none p-0" href="retweet.php?id=<?php echo $tweetInfo['id'] ?>">
+                                <img src="img/retweetValide.png" width="20px" height="20px">
+                            </a>
+                        <?php } else { ?>
+                            <a class="text-decoration-none p-0" href="retweet.php?id=<?php echo $tweetInfo['id'] ?>">
+                                <img src="img/retweet.png" width="20px" height="20px">
+                            </a>
+                        <?php  } ?>
                     <span>
                             <?php
                             $tweetId = $tweetInfo['id'];
@@ -63,7 +76,36 @@ foreach ($stmt as $tweetInfo) {
                             $NbRetweet = $retweet->fetch();
                             echo $NbRetweet['NbRetweet'];
                             ?>
-                        </span>
+                    </span>
+                </div>
+                <div>
+                    <?php 
+                        $statements = $pdo->prepare("SELECT * FROM `Likes` WHERE user_id = $userId AND publication_id = $tweetId");
+                        $resultats = $statements->execute();
+                        $likes = $statements->fetch();
+
+                        if ($likes !== false) {
+                        ?>  
+                            <a class="text-decoration-none p-0" href="like.php?id=<?php echo $tweetInfo['id'] ?>">
+                                <img src="img/fullHeart.png" width="20px" height="20px">
+                            </a>
+                        <?php } else { ?>
+                            <a class="text-decoration-none p-0" href="like.php?id=<?php echo $tweetInfo['id'] ?>">
+                                <img src="img/heart.png" width="20px" height="20px">
+                            </a>
+                        <?php  } ?>
+
+                    <span>
+                            <?php
+                            $tweetId = $tweetInfo['id'];
+                            $like = $pdo->prepare(
+                                "SELECT COUNT(`Likes`.`publication_id`) NbLikes FROM `Likes` WHERE `Likes`.`publication_id` = $tweetId"
+                            );
+                            $rslt = $like->execute();
+                            $NbLikes = $like->fetch();
+                            echo $NbLikes['NbLikes'];
+                            ?>
+                    </span>
                 </div>
             </div>
             <p class="text-end pe-4"><?php echo date("d/m/Y H:i",strtotime($tweetInfo['date_publication'])); ?></p>

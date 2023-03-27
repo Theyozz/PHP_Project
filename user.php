@@ -25,9 +25,9 @@ if ($userId == $_SESSION['connected']) {
                 <p class="m-0 fw-light"><?php echo $user['mail'] ?></p>
             </div>
         </div>
-        <!-- <button type="button" class="btn btn-primary fw-light">
+        <button type="button" class="btn btn-primary fw-light">
             Follow
-        </button> -->
+        </button>
     </div>
 
 

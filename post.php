@@ -29,6 +29,7 @@ $post = $stmt->fetch();
                 <img src="img/commenter.png" width="20px" height="20px">
             </a>
             <img src="img/retweet.png" width="20px" height="20px">
+            <img src="img/heart.png" width="20px" height="20px">
         </div>
         <p class="text-end pe-4"><?php echo date("d/m/Y H:i",strtotime($post['date_publication'])) ?></p>
     </div>
