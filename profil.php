@@ -6,6 +6,7 @@ require_once __DIR__ . '/modal/profil_modal.php';
 require_once __DIR__ . '/classes/MsgError.php';
 require_once __DIR__ . '/functions/redirect.php';
 require_once __DIR__ . '/functions/error.php';
+// require_once __DIR__ . '/functions/follow.php';
 
 $session->notLogIn();
 
@@ -21,6 +22,24 @@ $session->notLogIn();
             <div>
                 <h1><?php echo $user['pseudo']?></h1>
                 <p class="m-0 fw-light"><?php echo $user['mail'] ?></p>
+                <div class="d-flex gap-4 fw-light mt-4">
+                        <div class="d-flex gap-2">
+                            <?php
+                                $follower = $pdo->query("SELECT COUNT(f_id) as Follower FROM `Follow` WHERE f_id = $userId;");
+                                $dFollower = $follower->fetch();
+                                echo $dFollower['Follower'];
+                            ?>
+                            <p>Followers</p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <?php
+                                $following = $pdo->query("SELECT COUNT(user_id) as Following FROM `Follow` WHERE user_id = $userId;");
+                                $dFollowing = $following->fetch();
+                                echo $dFollowing['Following'];
+                            ?>
+                            <p>Following</p>
+                        </div>
+                </div>
                 <?php loginError(); ?>
             </div>
         </div>

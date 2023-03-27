@@ -23,6 +23,24 @@ if ($userId == $_SESSION['connected']) {
             <div>
                 <h1><?php echo $user['pseudo'] ?></h1>
                 <p class="m-0 fw-light"><?php echo $user['mail'] ?></p>
+                <div class="d-flex gap-4 fw-light mt-4">
+                    <div class="d-flex gap-2">
+                        <?php
+                        $follower = $pdo->query("SELECT COUNT(f_id) as Follower FROM `Follow` WHERE f_id = $userId;");
+                        $dFollower = $follower->fetch();
+                        echo $dFollower['Follower'];
+                        ?>
+                        <p>Followers</p>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <?php
+                        $following = $pdo->query("SELECT COUNT(user_id) as Following FROM `Follow` WHERE user_id = $userId;");
+                        $dFollowing = $following->fetch();
+                        echo $dFollowing['Following'];
+                        ?>
+                        <p>Following</p>
+                    </div>
+                </div>
             </div>
         </div>
         <?php
@@ -33,7 +51,7 @@ if ($userId == $_SESSION['connected']) {
 
         if ($Follows !== false) { ?>
 
-            <a class='text-decoration-none'href="follow.php?id=<?php echo $userId ?>">
+            <a class='text-decoration-none' href="follow.php?id=<?php echo $userId ?>">
                 <button type="button" class="btn btn-danger fw-light">
                     Unfollow
                 </button>
