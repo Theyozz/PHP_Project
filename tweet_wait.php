@@ -16,5 +16,7 @@ if (!empty($content)) {
             'user_id' => $_SESSION['connected']
         ]);    
         redirect('index.php');
+}else {
+    redirect('login.php');
 }
 

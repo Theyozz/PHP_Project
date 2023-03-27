@@ -1,6 +1,9 @@
 <?php 
 require_once __DIR__ .'/bdd/pdo.php';
 require_once __DIR__ .'/functions/redirect.php';
+require_once __DIR__ .'/classes/Session.php';
+$session = new Session;
+$session->notLogIn();
 
 $tweetId = $_GET['id'];
 

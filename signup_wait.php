@@ -2,6 +2,7 @@
 require_once __DIR__ . '/bdd/pdo.php';
 require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/functions/redirect.php';
+require_once __DIR__ . '/classes/MsgValidate.php';
 
 $pseudo = $_POST['pseudo'];
 $mail = $_POST['mail'];
@@ -28,8 +29,7 @@ if (!empty($pseudo || $mail || $pass)) {
 
     $user = $stmt2->fetch();
 
-    $_SESSION['connected'] = $user['id'];
-    redirect('index.php');
+    redirect('login.php?validate='. MsgValidate::CREATE_USER);
     exit();
 } else {
     redirect('login.php');

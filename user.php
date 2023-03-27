@@ -54,11 +54,11 @@ if ($userId == $_SESSION['connected']) {
             <p class="p-4"><?php echo $tweet['content'] ?></p>
             <div class="d-flex justify-content-between ms-3">
                 <div class="d-flex gap-2">
-                    <img src="img/commenter.png" width="20px" height="20px">
-                    <img src="img/retweet.png" width="20px" height="20px">
+                        <img src="img/commenter.png" width="20px" height="20px">
+                        <img src="img/retweet.png" width="20px" height="20px">
                 </div>
                 <p class="text-end pe-4"><?php echo date("d/m/Y H:i",strtotime($tweet['date_publication'])) ?></p>
             </div>
         </div>
 <?php }
-} ?>
+} 

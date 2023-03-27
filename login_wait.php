@@ -15,13 +15,14 @@ $results = $stmt->execute([
 $user = $stmt->fetch();
 
 if ($user && password_verify($pass, $user['mdp'])) {
-    
-    $_SESSION['connected']=$user['id'];
+
+    $session->setLogIn($user['id']);
     redirect('index.php');
     exit();
+
 } else {
+
     redirect('login.php?error=' . MsgError::PASS_PSEUDO_INVALID);
     exit();
+    
 }
-
-?>

@@ -5,4 +5,3 @@
 </div>
 <?php 
 require_once __DIR__.'/modal/tweet_modal.php';
-?>

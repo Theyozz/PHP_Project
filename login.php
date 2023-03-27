@@ -3,7 +3,9 @@ $title = "Log in";
 require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/modal/signup_modal.php';
 require_once __DIR__ .'/classes/MsgError.php';
+require_once __DIR__ .'/classes/MsgValidate.php';
 require_once __DIR__ .'/functions/error.php';
+require_once __DIR__ .'/functions/validate.php';
 ?>
 
 
@@ -15,7 +17,8 @@ require_once __DIR__ .'/functions/error.php';
   <div class="bg-white p-4 col-3 rounded-4 shadow">
     <form action="login_wait.php" class="text-center" method="post">
 
-      <?php error() ?>
+      <?php loginError() ?>
+      <?php validate() ?>
 
       <div class="mt-3 ">
         <input type="text" class="form-control" name="pseudo" placeholder="Pseudo" >
@@ -38,4 +41,3 @@ require_once __DIR__ .'/functions/error.php';
 
 <?php
 require_once __DIR__ . '/layout/footer.php';
-?>

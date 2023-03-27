@@ -7,6 +7,11 @@ class Session
         session_start();
     }
 
+    public function setLogIn($message)
+    {
+        $_SESSION['connected'] = $message;
+    }
+
     public function setFlash($message)
     {
         $_SESSION['flash'] = $message;
