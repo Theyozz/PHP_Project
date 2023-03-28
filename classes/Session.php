@@ -24,7 +24,7 @@ class Session
         }
     }
 
-    public function notLogIn()
+    public function notLogIn(): void
     {
         if (empty($_SESSION)) {
                 redirect('login.php');

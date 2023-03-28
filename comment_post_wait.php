@@ -19,6 +19,8 @@ if (!empty($comment)) {
         'u_id' => $userId
     ]);
     redirect('post.php?id='.$postId);
+} else {
+    redirect('post.php?id='.$postId);
 }
 
 

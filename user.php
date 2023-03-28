@@ -49,19 +49,19 @@ if ($userId == $_SESSION['connected']) {
         $resultFollow = $Following->execute();
         $Follows = $Following->fetch();
 
-        if ($Follows !== false) { ?>
-
+        if ($Follows) { ?>
             <a class='text-decoration-none' href="follow.php?id=<?php echo $userId ?>">
                 <button type="button" class="btn btn-danger fw-light">
                     Unfollow
                 </button>
-            <?php } else { ?>
-                <a href="follow.php?id=<?php echo $userId ?>">
-                    <button type="button" class="btn btn-primary fw-light">
-                        Follow
-                    </button>
-                </a>
-            <?php  } ?>
+            </a>
+        <?php } else { ?>
+            <a href="follow.php?id=<?php echo $userId ?>">
+                <button type="button" class="btn btn-primary fw-light">
+                    Follow
+                </button>
+            </a>
+        <?php  } ?>
     </div>
 
 

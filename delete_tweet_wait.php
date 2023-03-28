@@ -19,6 +19,12 @@ $deletingShare = $pdo->prepare(
 
 $shareDeleted = $deletingShare->execute();
 
+$deletingLikes = $pdo->prepare(
+    "DELETE FROM `likes` 
+    WHERE `likes`.`publication_id` = $tweetId");
+
+$likeDeleted = $deletingLikes->execute();
+
 $deletingTweet = $pdo->prepare(
     "DELETE FROM `Publication` 
     WHERE `Publication`.`id` = $tweetId"

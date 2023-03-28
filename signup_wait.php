@@ -21,14 +21,6 @@ if (!empty($pseudo || $mail || $pass)) {
         'pass' => $hashed_password
     ]);
 
-    $stmt2 = $pdo->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
-
-    $results2 = $stmt2->execute([
-        'pseudo' => $pseudo,
-    ]);
-
-    $user = $stmt2->fetch();
-
     redirect('login.php?validate='. MsgValidate::CREATE_USER);
     exit();
 } else {
