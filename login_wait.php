@@ -4,7 +4,7 @@ use App\MsgError;
 
 require_once __DIR__.'/bdd/pdo.php';
 require_once __DIR__.'/layout/header.php'; 
-require_once __DIR__ .'/functions/redirect.php';
+require_once __DIR__.'/functions/functions.php';
 
 $pseudo = $_POST['pseudo'];
 $pass = $_POST['mdp'];

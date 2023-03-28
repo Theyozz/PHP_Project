@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/bdd/pdo.php';
-require_once __DIR__ . '/functions/redirect.php';
+require_once __DIR__.'/functions/functions.php';
 
 $publicationId = $_GET['id'];
 $userId = $_SESSION['connected'];

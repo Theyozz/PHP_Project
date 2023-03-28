@@ -2,7 +2,7 @@
 $title = "Post";
 require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/bdd/pdo.php';
-require_once __DIR__ . '/functions/redirect.php';
+require_once __DIR__.'/functions/functions.php';
 
 $session->notLogIn();
 
