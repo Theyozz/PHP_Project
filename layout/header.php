@@ -1,5 +1,9 @@
 <?php
-require_once __DIR__.'/../classes/Session.php';
+// require_once __DIR__.'/../classes/Session.php';
+
+use App\Session;
+
+require_once 'vendor/autoload.php';
 $session = new Session();
 ?>
 

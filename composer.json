@@ -1,0 +1,14 @@
+{
+    "name": "theyozz/php_project",
+    "authors": [
+        {
+            "name": "Théo VM",
+            "email": "theomaurin875@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4":{
+            "App\\":"classes/"
+        }
+    }
+}

@@ -1,8 +1,13 @@
 <?php
+
+use App\MsgError;
+use App\MsgValidate;
+
 require_once __DIR__ . '/bdd/pdo.php';
 require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/functions/redirect.php';
-require_once __DIR__ . '/classes/MsgValidate.php';
+// require_once __DIR__ . '/classes/MsgError.php';
+// require_once __DIR__ . '/classes/MsgValidate.php';
 
 $pseudo = $_POST['pseudo'];
 $mail = $_POST['mail'];
@@ -15,15 +20,17 @@ if (!empty($pseudo || $mail || $pass)) {
         VALUES (:pseudo, :mail, :pass)"
     );
 
-    $results = $stmt->execute([
-        'pseudo' => $pseudo,
-        'mail' => $mail,
-        'pass' => $hashed_password
-    ]);
-
-    redirect('login.php?validate='. MsgValidate::CREATE_USER);
-    exit();
-} else {
-    redirect('login.php');
-    exit();
+    try {
+        $results = $stmt->execute([
+            'pseudo' => $pseudo,
+            'mail' => $mail,
+            'pass' => $hashed_password
+        ]);
+    
+        redirect('login.php?validate='. MsgValidate::CREATE_USER);
+        exit();
+    } catch (Exception $e) {
+        redirect('login.php?error='. MsgError::ACCOUNT_CREATION_IMPOSSIBLE);
+        exit();
+    }
 }

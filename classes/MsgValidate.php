@@ -1,4 +1,6 @@
 <?php
+
+namespace App;
 class MsgValidate
 {
     public const CREATE_USER = 1;

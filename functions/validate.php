@@ -1,5 +1,7 @@
 <?php
 
+use App\MsgValidate;
+
 function validate()
 {
     if (array_key_exists('validate', $_GET)) { ?>

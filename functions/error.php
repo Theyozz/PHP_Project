@@ -1,5 +1,7 @@
 <?php
 
+use App\MsgError;
+
 function loginError()
 {
     if (array_key_exists('error', $_GET)) { ?>
