@@ -3,6 +3,7 @@
 use App\MsgValidate;
 use App\MsgError;
 
+
 function validate()
 {
     if (array_key_exists('validate', $_GET)) { ?>
@@ -12,6 +13,7 @@ function validate()
     <?php }
 }
 
+
 function loginError()
 {
     if (array_key_exists('error', $_GET)) { ?>
@@ -20,6 +22,7 @@ function loginError()
         </div>
 <?php }
 }
+
 
 /**
  * Redirects to given location and exits
@@ -32,3 +35,23 @@ function redirect(string $location): void
     header('Location: ' . $location);
     exit;
 }
+
+
+
+function displayFollowButton($follows, $userId):void
+{
+    if ($follows) { ?>
+        <a class='text-decoration-none' href="follow.php?id=<?php echo $userId ?>">
+            <button type="button" class="btn btn-danger fw-light">
+                Unfollow
+            </button>
+        </a>
+    <?php } else { ?>
+        <a href="follow.php?id=<?php echo $userId ?>">
+            <button type="button" class="btn btn-primary fw-light">
+                Follow
+            </button>
+        </a>
+    <?php  }
+}
+

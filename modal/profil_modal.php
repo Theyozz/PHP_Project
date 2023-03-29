@@ -17,7 +17,7 @@
                         <input type="text" class="form-control" name="mail" placeholder="Mail">
                     </div>
                     <div class="mt-3">
-                        <input type="submit" class="btn btn-danger w-50 shadow-sm" value="Change">
+                        <input type="submit" class="btn btn-warning w-50 shadow-sm" value="Change">
                     </div>
                 </form>
             </div>

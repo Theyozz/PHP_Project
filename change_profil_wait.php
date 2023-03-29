@@ -9,12 +9,12 @@ require_once __DIR__.'/functions/functions.php';
 $session = new Session;
 $session->notLogIn();
 
+$userId = $_SESSION['connected'];
 $img = $_FILES['img'];
 $tmp_name = $img['tmp_name'];
+$img_upload_path = './img/' . $img['name'];
 $pseudo = $_POST['pseudo'];
 $mail = $_POST['mail'];
-$userId = $_SESSION['connected'];
-$img_upload_path = './img/' . $img['name'];
 
 if (!empty($img['name'])) {
 

@@ -3,6 +3,7 @@ $title = "Profil";
 require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/bdd/pdo.php';
 require_once __DIR__ . '/modal/profil_modal.php';
+require_once __DIR__ . '/modal/delete_user_modal.php';
 require_once __DIR__.'/functions/functions.php';
 
 $session->notLogIn();
@@ -40,8 +41,10 @@ $session->notLogIn();
                 <?php loginError(); ?>
             </div>
         </div>
-        <button type="button" class="btn btn-danger fw-light" data-bs-toggle="modal" data-bs-target="#profilModal">Edit profil
-        </button>
+        <div class="d-flex gap-3">
+            <button type="button" class="btn btn-warning fw-light" data-bs-toggle="modal" data-bs-target="#profilModal">Edit profil</button>
+            <button type="button" class="btn btn-danger fw-light" data-bs-toggle="modal" data-bs-target="#deleteUser">Delete account</button>
+        </div>
     </div>
 
 

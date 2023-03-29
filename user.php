@@ -2,6 +2,7 @@
 $title = "User";
 require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/bdd/pdo.php';
+require_once __DIR__ . '/functions/functions.php';
 
 
 $userId = $_GET['id'];
@@ -47,21 +48,12 @@ if ($userId == $_SESSION['connected']) {
         $ownId = $_SESSION['connected'];
         $Following = $pdo->prepare("SELECT * FROM `follow` WHERE user_id = $ownId AND f_id = $userId");
         $resultFollow = $Following->execute();
-        $Follows = $Following->fetch();
+        $follows = $Following->fetch();
+        
+        displayFollowButton($follows,$userId);
 
-        if ($Follows) { ?>
-            <a class='text-decoration-none' href="follow.php?id=<?php echo $userId ?>">
-                <button type="button" class="btn btn-danger fw-light">
-                    Unfollow
-                </button>
-            </a>
-        <?php } else { ?>
-            <a href="follow.php?id=<?php echo $userId ?>">
-                <button type="button" class="btn btn-primary fw-light">
-                    Follow
-                </button>
-            </a>
-        <?php  } ?>
+        ?>
+
     </div>
 
 
