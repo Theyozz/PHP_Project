@@ -1,4 +1,5 @@
 <?php
+$title = "List of users";
 require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/bdd/pdo.php';
 require_once __DIR__ . '/functions/functions.php';
