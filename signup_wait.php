@@ -2,15 +2,23 @@
 
 use App\MsgError;
 use App\MsgValidate;
+use App\User;
 
 require_once __DIR__ . '/bdd/pdo.php';
 require_once __DIR__ . '/layout/header.php';
 require_once __DIR__.'/functions/functions.php';
 
-$pseudo = $_POST['pseudo'];
-$mail = $_POST['mail'];
-$pass = $_POST['mdp'];
+$user = new User(
+    $_POST['pseudo'], 
+    $mail = $_POST['mail'], 
+    $pass = $_POST['mdp']
+);
+
+$pseudo = $user->getPseudo();
+$mail = $user->getMail();
+$mdp = $user->getPass();
 $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
+
 
 if (!empty($pseudo || $mail || $pass)) {
     $stmt = $pdo->prepare(
