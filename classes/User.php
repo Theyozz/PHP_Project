@@ -7,12 +7,14 @@ class User
     private string $pseudo;
     private string $mail;
     private string $pass;
+    private string $confirmPass;
 
-    public function __construct(string $pseudo,string $mail,string $pass)
+    public function __construct(string $pseudo,string $pass,?string $mail = "",?string $confirmPass = "")
     {
         $this->pseudo = $pseudo;
-        $this->mail = $mail;
         $this->pass = $pass;
+        $this->mail = $mail;
+        $this->confirmPass = $confirmPass;
     }
 
     public function getPseudo()
@@ -28,5 +30,10 @@ class User
     public function getPass()
     {
         return $this->pass;
+    }
+
+    public function getConfirmPass()
+    {
+        return $this->confirmPass;
     }
 }

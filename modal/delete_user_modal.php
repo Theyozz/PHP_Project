@@ -6,7 +6,7 @@
         <p>If you confirm, your folder will be deleted forever</p>
       </div>
       <div class="text-center mb-4">
-        <a href="delete_user_wait.php">
+        <a href="delete_user_wait.php" class="text-decoration-none">
             <button type="button" class="btn btn-danger" >DELETE</button>
         </a>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

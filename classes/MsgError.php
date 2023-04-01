@@ -7,6 +7,7 @@ class MsgError
     public const DUPLICATE_PSEUDO = 2;
     public const DUPLICATE_EMAIL = 3;
     public const ACCOUNT_CREATION_IMPOSSIBLE = 4;
+    public const PASS_DOESNT_MATCH = 5;
 
     public static function getErrorMessage(int $code): string
     {
@@ -22,6 +23,9 @@ class MsgError
                 break;
             case self::ACCOUNT_CREATION_IMPOSSIBLE :
                 return "Impossible to create an account due to a pseudo already taken";
+                break;
+            case self::PASS_DOESNT_MATCH :
+                return "Password doesn't match";
                 break;
             default:
                 return "ERROR ERROR ERROR";

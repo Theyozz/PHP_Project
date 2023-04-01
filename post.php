@@ -35,7 +35,7 @@ $post = $stmt->fetch();
     </div>
     
     <?php
-    $statement = $pdo->prepare("SELECT `comment`.`c_content`,`comment`.`creation_date`,`comment`.`user_id`,users.pseudo FROM comment INNER JOIN users ON `comment`.`user_id`=users.id WHERE `comment`.`publication_id` = $postId");
+    $statement = $pdo->prepare("SELECT `comment`.`c_content`,`comment`.`creation_date`,`comment`.`user_id`,users.pseudo,`comment`.id as id_c FROM comment INNER JOIN users ON `comment`.`user_id`=users.id WHERE `comment`.`publication_id` = $postId");
     $result = $statement->execute();
     $comments = $statement->fetchAll();
     foreach ($comments as $comment) {
@@ -45,6 +45,10 @@ $post = $stmt->fetch();
             <div class="d-flex gap-1 fw-light fs-6">
                 <p class="date mb-2"><?php echo " by ". $comment['pseudo'] ;?></p>
                 <p class="fs-6 date mb-2"><?php echo date("d/m/Y H:i",strtotime($comment['creation_date']))."<br />" ?></p>
+                <?php 
+                if ($comment['user_id'] == $_SESSION['connected']) { ?>
+                    <a class="text-decoration-none text-black me-4" href="delete_comment_wait.php?id=<?php echo $comment['id_c'] ?>">X</a> 
+            <?php } ?>
             </div>
         </div>
 

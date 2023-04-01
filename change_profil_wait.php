@@ -19,13 +19,13 @@ $mail = $_POST['mail'];
 if (!empty($img['name'])) {
 
     move_uploaded_file($tmp_name, $img_upload_path);
-    $statement = $pdo->prepare(
+    $stmt_pseudo_img = $pdo->prepare(
         "UPDATE users
         SET img = :img
         WHERE users.id = '$userId'"
     );
 
-    $image = $statement->execute([
+    $image = $stmt_pseudo_img->execute([
         'img' => $img_upload_path
     ]);
     redirect('profil.php');
@@ -33,13 +33,13 @@ if (!empty($img['name'])) {
 
 try {
     if (!empty($pseudo)) {
-        $stmt = $pdo->prepare(
+        $stmt_pseudo = $pdo->prepare(
             "UPDATE users
             SET pseudo = :pseudo
             WHERE users.id = '$userId'"
         );
 
-        $results = $stmt->execute([
+        $results = $stmt_pseudo->execute([
             'pseudo' => $pseudo
         ]);
         redirect('profil.php');
@@ -50,13 +50,13 @@ try {
 
 try {
     if (!empty($mail)) {
-        $stmt2 = $pdo->prepare(
+        $stmt_mail = $pdo->prepare(
             "UPDATE users
             SET mail = :mail
             WHERE users.id = '$userId'"
         );
 
-        $mail = $stmt2->execute([
+        $mail = $stmt_mail->execute([
             'mail' => $mail
         ]);
         redirect('profil.php');

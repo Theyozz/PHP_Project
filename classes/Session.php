@@ -14,17 +14,17 @@ class Session
         $_SESSION['connected'] = $message;
     }
 
-    public function setFlash($message)
-    {
-        $_SESSION['flash'] = $message;
-    }
-    public function flash()
-    {
-        if (isset($_SESSION['flash'])) {
-            $_SESSION['flash'];
-            unset($_SESSION['flash']);
-        }
-    }
+    // public function setFlash($message)
+    // {
+    //     $_SESSION['flash'] = $message;
+    // }
+    // public function flash()
+    // {
+    //     if (isset($_SESSION['flash'])) {
+    //         $_SESSION['flash'];
+    //         unset($_SESSION['flash']);
+    //     }
+    // }
 
     public function notLogIn(): void
     {

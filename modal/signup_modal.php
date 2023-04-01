@@ -16,6 +16,9 @@
           <div class="m-3 w-75">
             <input type="password" class="form-control" name="mdp" placeholder="Password" required>
           </div>
+          <div class="m-3 w-75">
+            <input type="password" class="form-control" name="confirmmdp" placeholder="Confirm password">
+          </div>
           <div class="m-3 col-4">
             <input type="submit" class="btn btn-success" value="Create Account">
           </div>

@@ -42,7 +42,7 @@ $session->notLogIn();
             </div>
         </div>
         <div class="d-flex gap-3">
-            <button type="button" class="btn btn-warning fw-light" data-bs-toggle="modal" data-bs-target="#profilModal">Edit profil</button>
+            <button type="button" class="btn btn-primary fw-light" data-bs-toggle="modal" data-bs-target="#profilModal">Edit profil</button>
             <button type="button" class="btn btn-danger fw-light" data-bs-toggle="modal" data-bs-target="#deleteUser">Delete account</button>
         </div>
     </div>
