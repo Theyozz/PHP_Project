@@ -4,7 +4,7 @@ use App\MsgValidate;
 use App\MsgError;
 
 
-function validate()
+function Validate()
 {
     if (array_key_exists('validate', $_GET)) { ?>
         <div class="alert alert-success">

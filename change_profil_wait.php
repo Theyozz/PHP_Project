@@ -1,6 +1,7 @@
 <?php
 
 use App\MsgError;
+use App\MsgValidate;
 use App\Session;
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -28,7 +29,7 @@ if (!empty($img['name'])) {
     $image = $stmt_pseudo_img->execute([
         'img' => $img_upload_path
     ]);
-    redirect('profil.php');
+    redirect('profil.php?validate='. MsgValidate::PROFIL_CHANGE);
 }
 
 try {
@@ -42,7 +43,7 @@ try {
         $results = $stmt_pseudo->execute([
             'pseudo' => $pseudo
         ]);
-        redirect('profil.php');
+        redirect('profil.php?validate='. MsgValidate::PROFIL_CHANGE);
     }
 } catch (Exception $e) {
     redirect('profil.php?error=' . MsgError::DUPLICATE_PSEUDO);
@@ -59,7 +60,7 @@ try {
         $mail = $stmt_mail->execute([
             'mail' => $mail
         ]);
-        redirect('profil.php');
+        redirect('profil.php?validate='. MsgValidate::PROFIL_CHANGE);
     }
 } catch (Exception $e) {
     redirect('profil.php?error=' . MsgError::DUPLICATE_EMAIL);

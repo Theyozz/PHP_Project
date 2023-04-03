@@ -39,6 +39,7 @@ $session->notLogIn();
                         </div>
                 </div>
                 <?php loginError(); ?>
+                <?php Validate(); ?>
             </div>
         </div>
         <div class="d-flex gap-3">

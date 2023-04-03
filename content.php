@@ -12,6 +12,7 @@ $stmt = $pdo->prepare(
 $results = $stmt->execute();
 
 $session->notLogIn();
+$userId = $_SESSION['connected'];
 
 foreach ($stmt as $tweetInfo) {
 ?>
@@ -26,7 +27,7 @@ foreach ($stmt as $tweetInfo) {
                 </div>
             </div>
             <?php 
-                if ($tweetInfo['user_id'] == $_SESSION['connected']) { ?>
+                if ($tweetInfo['user_id'] == $userId) { ?>
                     <a class="text-decoration-none text-black me-4" href="delete_tweet_wait.php?id=<?php echo $tweetInfo['id'] ?>">X</a> 
             <?php } ?>
         </div>
@@ -51,7 +52,6 @@ foreach ($stmt as $tweetInfo) {
                 </div>
                 <div>
                 <?php 
-                        $userId = $_SESSION['connected'];
                         $selectRetweet = $pdo->prepare("SELECT * FROM `Share` WHERE user_id = $userId AND publication_id = $tweetId");
                         $resultretweet = $selectRetweet->execute();
                         $retweets = $selectRetweet->fetch();

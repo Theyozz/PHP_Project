@@ -15,7 +15,7 @@ require_once __DIR__.'/functions/functions.php';
     <form action="login_wait.php" class="text-center" method="post">
 
       <?php loginError() ?>
-      <?php validate() ?>
+      <?php Validate() ?>
 
       <div class="mt-3 ">
         <input type="text" class="form-control" name="pseudo" placeholder="Pseudo" >
