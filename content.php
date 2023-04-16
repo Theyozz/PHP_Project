@@ -99,8 +99,7 @@ foreach ($stmt as $tweetInfo) {
                             <?php
                             $tweetId = $tweetInfo['id'];
                             $like = $pdo->prepare(
-                                "SELECT COUNT(`Likes`.`publication_id`) NbLikes FROM `Likes` WHERE `Likes`.`publication_id` = $tweetId"
-                            );
+                                "SELECT COUNT(`Likes`.`publication_id`) NbLikes FROM `Likes` WHERE `Likes`.`publication_id` = $tweetId");
                             $rslt = $like->execute();
                             $NbLikes = $like->fetch();
                             echo $NbLikes['NbLikes'];

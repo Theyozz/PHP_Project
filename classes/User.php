@@ -36,4 +36,5 @@ class User
     {
         return $this->confirmPass;
     }
+
 }
